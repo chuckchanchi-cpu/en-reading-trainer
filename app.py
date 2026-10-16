@@ -134,6 +134,57 @@ def ai_generate(topic):
     return {"title": data.get("title", "AI Generated Passage"), "source": "✨ AI 生成（qwen3.8-flash）",
             "article": data.get("article", ""), "questions": qs}
 
+def ai_generate_from_article(article):
+    """📥 仿寫：輸入原文 → 分析程度 → 生成同程度全新文章 + 題目"""
+    api_base, api_key, model = get_api_config()
+    if not api_key:
+        st.error("⚠️ 未偵測到 API key — 請設定 OPENAI_API_KEY（app Settings → Secrets）")
+        return None
+    prompt = f"""你是小六英文閱讀理解出題老師。以下是學生用過嘅一篇閱讀理解原文。
+請先分析原文嘅程度（詞彙難度、句式、文章長度、主題），然後生成一篇「同程度」嘅全新文章（內容唔同、唔可以抄原文，但題材相近、難度一致），再出 6 題。
+
+【原文】
+{article}
+
+要求：
+1. 新文章 250-350 英文詞，程度同原文一致，題材相近但內容全新。
+2. 出 6 題：5 條四選一 MCQ + 1 條 ONE-word 填詞。
+3. MCQ 題型必須包括：detail（細節）、not-mentioned（逆向：NOT mentioned）、inference（推論）、vocabulary（詞義）、main-idea（主旨）各一題。
+4. 干擾項要接近同似是而非（同範疇、常見混淆），唔可以太易排除。
+5. 每題要有 hint（中文書面語，講定位技巧）同 trap（中文書面語，講干擾項點解錯、常見陷阱）。
+6. 填詞題答案必須係文章中出現過嘅一個英文字。
+只回 JSON，格式：
+{{"title":"...","article":"...","questions":[{{"type":"mcq","skill":"detail","q":"...","options":["...","...","...","..."],"answer":"...","hint":"...","trap":"..."}},{{"type":"cloze","skill":"cloze","q":"...","answer":"...","hint":"...","trap":"..."}}]}}"""
+    try:
+        resp = requests.post(
+            f"{api_base}/chat/completions",
+            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+            json={"model": model, "messages": [{"role": "user", "content": prompt}],
+                  "temperature": 0.7, "max_tokens": 3000},
+            timeout=90,
+        )
+        content = resp.json()["choices"][0]["message"]["content"]
+    except Exception as e:
+        st.error(f"❌ API 出錯：{e}")
+        return None
+    start = content.find("{")
+    end = content.rfind("}")
+    if start == -1 or end <= start:
+        st.error("❌ AI 回覆搵唔到 JSON — 再試一次？")
+        return None
+    try:
+        data = json.loads(content[start:end + 1])
+    except Exception:
+        st.error("❌ AI JSON 解析失敗 — 再試一次？")
+        return None
+    qs = validate_questions(data.get("questions", []))
+    if len(qs) < 4:
+        st.error("❌ AI 生成嘅題目唔夠合格數量 — 再試一次？")
+        return None
+    return {"title": data.get("title", "AI Generated Passage"), "source": "📥 AI 仿寫（同程度新篇）",
+            "article": data.get("article", ""), "questions": qs}
+
+
 def build_quiz(passage):
     qs = []
     for q in passage["questions"]:
@@ -152,7 +203,7 @@ if "rd_checked" not in st.session_state:
 # ===== Sidebar =====
 with st.sidebar:
     st.header("⚙️ 設定")
-    mode = st.radio("生成模式", ["📖 題庫練習（即時）", "✨ AI 生成新篇（qwen3.8-flash）"], key="rd_mode")
+    mode = st.radio("生成模式", ["📖 題庫練習（即時）", "✨ AI 生成新篇（自訂主題）", "📥 AI 仿寫（輸入原文）"], key="rd_mode")
     if mode.startswith("📖"):
         pmap = {f"{p['title']}（{p['source']}）": p for p in PASSAGES}
         choice = st.selectbox("揀篇章", list(pmap.keys()), key="rd_pick")
@@ -160,7 +211,7 @@ with st.sidebar:
             st.session_state.rd_quiz = build_quiz(pmap[choice])
             st.session_state.rd_checked = False
             st.rerun()
-    else:
+    elif mode.startswith("✨"):
         topic = st.text_input("主題（可留空自動揀）", placeholder="例如：海洋保育、太空旅行…", key="rd_topic")
         if st.button("✨ 生成新篇章", type="primary", use_container_width=True):
             with st.spinner("✨ AI 生成緊篇章同題目…（約 10–30 秒）"):
@@ -169,6 +220,18 @@ with st.sidebar:
                 st.session_state.rd_quiz = build_quiz(p)
                 st.session_state.rd_checked = False
                 st.rerun()
+    else:
+        article = st.text_area("貼上原文（AI 分析程度 → 生成同程度新篇）", placeholder="貼上考試卷嘅閱讀理解原文…", height=200, key="rd_article")
+        if st.button("📥 生成同程度新篇", type="primary", use_container_width=True):
+            if not article.strip():
+                st.warning("⚠️ 請先貼上原文")
+            else:
+                with st.spinner("📥 AI 分析程度 + 生成同程度新篇…（約 20–40 秒）"):
+                    p = ai_generate_from_article(article.strip())
+                if p:
+                    st.session_state.rd_quiz = build_quiz(p)
+                    st.session_state.rd_checked = False
+                    st.rerun()
     st.divider()
     st.caption("題型：細節 / 逆向 / 推論 / 詞義 / 主旨 / ONE-word 填詞\n每題附 💡提示 + ⚠️陷阱")
 
@@ -248,10 +311,21 @@ if c2.button("🔄 再嚟一篇", use_container_width=True):
             st.session_state.rd_quiz = build_quiz(pmap[choice])
             st.session_state.rd_checked = False
             st.rerun()
-    else:
+    elif st.session_state.rd_mode.startswith("✨"):
         with st.spinner("✨ AI 生成緊…"):
             p = ai_generate(st.session_state.get("rd_topic", "") or "")
         if p:
             st.session_state.rd_quiz = build_quiz(p)
             st.session_state.rd_checked = False
             st.rerun()
+    else:
+        article = st.session_state.get("rd_article", "") or ""
+        if not article.strip():
+            st.error("⚠️ 未有原文可仿寫")
+        else:
+            with st.spinner("📥 AI 仿寫緊…"):
+                p = ai_generate_from_article(article.strip())
+            if p:
+                st.session_state.rd_quiz = build_quiz(p)
+                st.session_state.rd_checked = False
+                st.rerun()
