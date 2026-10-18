@@ -391,4 +391,195 @@ PASSAGES = [
             },
         ],
     },
+    {
+        "id": "skylantern",
+        "title": "The History of Sky Lanterns",
+        "source": "2026-10-18 評估卷 Part 2（Q23-28）",
+        "article": (
+            "Have you ever seen a light floating in the night sky? It is not magic, but a simple invention "
+            "created about 1,800 years ago in China. It is said that the famous strategist Zhuge Liang, also "
+            "called Zhuge Kongming, first made and used sky lanterns in the military to send messages during "
+            "battles. This is why sky lanterns are also known as Kongming lanterns. Nowadays, sky lanterns are "
+            "often used to make wishes and celebrate success.\n\n"
+            "Eugene Yong is a famous sky lantern maker in Chengdu. When he was young, he saw the sky light up "
+            "with hundreds of sky lanterns on the day he lost an important competition. Amazed by the sight, he "
+            "set aside his sadness and returned home to learn about sky lanterns. At first, he often failed to "
+            "make them because the paper was very delicate. It was light so that sky lanterns could float, but "
+            "it was easy to tear. Still, he never gave up. After graduating from university, he was able to earn "
+            "a living by making sky lanterns.\n\n"
+            "A sky lantern can fly because the hot air inside the lantern is lighter than the cold air outside. "
+            "To make sure that sky lanterns can fly, they are designed with a small bottom and a large top to "
+            "prevent hot air from escaping. When Eugene makes a sky lantern, he first makes the bottom frame "
+            "from bamboo or iron wire. Then, he glues oiled rice paper on top to complete the shell of the "
+            "lantern. It is ready to fly when something that can burn, like a candle or rolled paper, is "
+            "attached to the centre of the bottom frame.\n\n"
+            "Today, more people use sky lanterns to celebrate different events. In mainland China, they are "
+            "used to celebrate the Lantern Festival in January or February. In Taiwan, in February or March, "
+            "Pingxi has become a popular tourist attraction because visitors can write their wishes on giant "
+            "sky lanterns and fly them up to the sky. In countries like Japan and Thailand, a few cities use "
+            "sky lanterns and fly them up for good luck and pray for peace in the coming year. The celebration "
+            "in Japan is usually in August, while that in Thailand is usually in November."
+        ),
+        "questions": [
+            {
+                "type": "mcq", "skill": "detail",
+                "q": "Which of the following is TRUE according to paragraph 1?",
+                "options": [
+                    "Sky lanterns are a complicated invention.",
+                    "Sky lanterns were used for celebrations in the past.",
+                    "Another name for sky lanterns is Kongming lanterns.",
+                    "A Chinese soldier invented sky lanterns 1,800 years ago.",
+                ],
+                "answer": "Another name for sky lanterns is Kongming lanterns.",
+                "hint": "段一末句「This is why sky lanterns are also known as Kongming lanterns」直接對應。",
+                "trap": "B 時序倒轉——過去係軍事傳訊，現今先係慶祝；D——諸葛亮係 strategist（軍師）唔係 soldier，同埋原文用「It is said」（相傳）。",
+            },
+            {
+                "type": "mcq", "skill": "vocabulary",
+                "q": "What does 'delicate' mean in paragraph 2?",
+                "options": ["small", "thin", "heavy", "thick"],
+                "answer": "thin",
+                "hint": "上下文：「It was light... but it was easy to tear」→ 紙薄、易撕破。詞義題靠後句解釋反推。",
+                "trap": "⚠️ 唔係「細小」— 後句話「easy to tear」（易撕破）先係關鍵線索。",
+            },
+            {
+                "type": "mcq", "skill": "not-mentioned",
+                "q": "According to paragraph 3, which of the following is NOT used to make sky lanterns?",
+                "options": ["Iron wire", "A light bulb", "A candle", "Oiled rice paper"],
+                "answer": "A light bulb",
+                "hint": "逆向題逐項核對：iron wire ✓（底框）、oiled rice paper ✓（燈殼）、candle ✓（可燃物）— 燈泡冇提。",
+                "trap": "⚠️ 範圍係「造天燈嘅材料」— 燈泡雖然同光有關，但原文完全冇提。見到「light」字眼唔好中伏。",
+            },
+            {
+                "type": "mcq", "skill": "inference",
+                "q": "What can we learn about Eugene Yong from paragraph 2?",
+                "options": [
+                    "He never gives up easily.",
+                    "He was a famous strategist.",
+                    "He lost interest in sky lanterns after losing a competition.",
+                    "He studied engineering at university.",
+                ],
+                "answer": "He never gives up easily.",
+                "hint": "推論題：「Often failed... Still, he never gave up」→ 堅持不懈。由行為推性格，唔係直接抄句。",
+                "trap": "B 張冠李戴（strategist 係諸葛亮）；C 同原文相反（佢返屋企學做天燈）；D 原文冇講大學讀咩。",
+            },
+            {
+                "type": "mcq", "skill": "main-idea",
+                "q": "What is the main purpose of this article?",
+                "options": [
+                    "To introduce facts about sky lanterns.",
+                    "To tell readers how to make sky lanterns.",
+                    "To tell a story about a sky lantern maker.",
+                    "To encourage readers to release their own sky lanterns.",
+                ],
+                "answer": "To introduce facts about sky lanterns.",
+                "hint": "主旨題要覆蓋全文：歷史＋原理＋匠人＋各地慶祝 → 介紹天燈知識。",
+                "trap": "B（段三）、C（段二）只係局部內容；D 係結尾修辭問句，唔係全文主旨——太窄唔可以做主旨。",
+            },
+            {
+                "type": "cloze", "skill": "cloze",
+                "q": "Complete the sentence with ONE word from the article: Sky lanterns are also known as _____ lanterns.",
+                "answer": "Kongming",
+                "hint": "段一末句：因為諸葛亮（Zhuge Kongming）首先使用，所以叫 Kongming lanterns。",
+                "trap": "⚠️ ONE word 限定，答案係「Kongming」（名字），唔係 Zhuge 亦唔係諸葛。",
+            },
+        ],
+    },
+    {
+        "id": "stationery",
+        "title": "A Stationery Shop's Journey",
+        "source": "2026-10-18 評估卷 Part 3（Q29-35）",
+        "article": (
+            "My name is Sam Lee. My story began in 1965 when I was seven. I visited the local stationery shop "
+            "after school when my parents were at work. I spent my time looking at the supplies, the kind owner "
+            "let me try out different stationery, and shared my ideas. When the owner let me help out at the "
+            "store, I realised I hoped to have my own stationery shop one day too.\n\n"
+            "After graduating from secondary school, I worked odd jobs and saved up most of my salary for my "
+            "goal. In 1982, I finally rented a store in a new shopping centre. I sold stationery at a fair price "
+            "and also sold toys from popular children's shows. Later, I was able to afford a large printer for "
+            "customers to use. Since not many people had printers at that time, my store became well-known in "
+            "the community.\n\n"
+            "My shop blossomed between 1985 and 2005. As schools opened nearby, more and more customers came to "
+            "my shop. They grew up there, especially since their parents were regular customers too. I knew "
+            "many of the students as they bought my low-priced stationery and hung around my shop. Whenever it "
+            "was exam season, I would give them snacks and wish them good luck. We shared stories together "
+            "throughout the years.\n\n"
+            "Things began to change after the late 2010s. As online shopping became more common and there were "
+            "big chain stores from overseas, fewer people visited my shop. It was difficult to make enough sales "
+            "to cover the rent that continued to increase. Not long after, I decided to close down my shop. "
+            "Surprisingly, many of my old customers came to visit me when they heard about the news. Although it "
+            "had been a long time, they shared stories about their lives and successes, and even bought a lot of "
+            "leftover stationery. I was glad. As for what happens next, I will move to Australia and take care of "
+            "my grandchildren there. But I would treasure and never forget the memories I made in my stationery shop."
+        ),
+        "questions": [
+            {
+                "type": "mcq", "skill": "vocabulary",
+                "q": "In paragraph 2, what does 'goal' refer to?",
+                "options": [
+                    "Saving up a lot of money.",
+                    "Opening a stationery shop.",
+                    "Trying out different stationery.",
+                    "Graduating from secondary school.",
+                ],
+                "answer": "Opening a stationery shop.",
+                "hint": "段一末「I hoped to have my own stationery shop one day」→ goal＝開文具店。代詞指涉題要翻前文搵。",
+                "trap": "A 係達成目標嘅「手段」（儲錢），唔係目標本身。",
+            },
+            {
+                "type": "mcq", "skill": "detail",
+                "q": "Sam's shop became well-known mainly because _____.",
+                "options": [
+                    "He sold stationery at a fair price.",
+                    "He sold toys from popular children's shows.",
+                    "There was a large printer at his shop.",
+                    "He rented a shop in a new shopping centre.",
+                ],
+                "answer": "There was a large printer at his shop.",
+                "hint": "段二末「Since not many people had printers at that time, my store became well-known」→ 打印機係主因（since 解釋原因）。",
+                "trap": "A/B/D 都係店鋪特點，但原文用「Since」點名嘅原因係打印機罕有——「mainly because」要揀直接因果。",
+            },
+            {
+                "type": "mcq", "skill": "vocabulary",
+                "q": "In paragraph 3, 'blossomed' means _____.",
+                "options": ["made flowers", "grew poorer", "moved", "grew stronger"],
+                "answer": "grew stronger",
+                "hint": "上下文：「more and more customers came」→ 生意興旺。blossomed 本義開花，比喻「興旺起來」。",
+                "trap": "⚠️ 唔好照字面譯「開花」— 比喻義靠後句客量增加反推。",
+            },
+            {
+                "type": "mcq", "skill": "not-mentioned",
+                "q": "Which of the following is NOT the reason for Sam's retirement?",
+                "options": [
+                    "The cost of his shop increased.",
+                    "Online shopping became popular.",
+                    "He had to take care of his grandchildren.",
+                    "Big chain stores from overseas opened in Hong Kong.",
+                ],
+                "answer": "He had to take care of his grandchildren.",
+                "hint": "段四：結業原因＝網購＋連鎖店＋租金加；照顧孫仔係「將來計劃」（I will move to Australia...），唔係原因。",
+                "trap": "⚠️ 時序陷阱：將來計劃唔等於過去原因——逆向題要分清「原因」同「結果/計劃」。",
+            },
+            {
+                "type": "mcq", "skill": "inference",
+                "q": "Why was Sam glad in paragraph 4?",
+                "options": [
+                    "Because he was finally retiring.",
+                    "Because his old customers came to visit him before the shop closed.",
+                    "Because he planned to go to Australia afterwards.",
+                    "Because he shared his own stories with his old customers.",
+                ],
+                "answer": "Because his old customers came to visit him before the shop closed.",
+                "hint": "「Surprisingly, many of my old customers came to visit me... I was glad」→ 驚喜＋欣慰係因為舊客人嚟探。",
+                "trap": "D 倒轉主客——係「客人分享佢哋嘅故事」（they shared stories about their lives），唔係 Sam 分享。",
+            },
+            {
+                "type": "cloze", "skill": "cloze",
+                "q": "Complete the sentence with ONE word from the article: After graduating from secondary school, I worked odd jobs and _____ up most of my salary for my goal.",
+                "answer": "saved",
+                "hint": "常用片語「save up」＝儲蓄；過去式敘事（1982 年前嘅事）→ saved。",
+                "trap": "⚠️ 過去式要加 -d（saved ✅ / save ❌）；唔好寫「saving」（前有 and 連接 worked，同一時態）。",
+            },
+        ],
+    },
 ]
