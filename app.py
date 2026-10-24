@@ -113,9 +113,16 @@ def ai_generate(topic):
             },
             timeout=90,
         )
-        content = resp.json()["choices"][0]["message"]["content"]
     except Exception as e:
-        st.error(f"❌ API 出錯：{e}")
+        st.error(f"❌ 網絡/API 連接出錯：{e}")
+        return None
+    # 先檢查 HTTP 狀態同回應格式 — 非 JSON 回應多數係 key 無效/endpoint 唔啱
+    try:
+        content = resp.json()["choices"][0]["message"]["content"]
+    except Exception:
+        body = (resp.text or "").strip()[:200]
+        st.error(f"❌ API 回應格式錯誤（HTTP {resp.status_code}）：{body or '（空回應）'}")
+        st.caption("💡 常見原因：①API key 無效或已過期（檢查 Settings → Secrets 嘅 OPENAI_API_KEY）②API 地址或模型名稱唔啱 ③服務暫時過載")
         return None
     # 清理 ```json fences
     m = re.search(r"\{.*\}", content, re.S)
