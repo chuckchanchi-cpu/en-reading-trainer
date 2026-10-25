@@ -65,7 +65,9 @@ def grade_cloze(user, answer):
     return norm_answer(user) in [norm_answer(a) for a in alts] and norm_answer(user) != ""
 
 def _match_option(ans, opts):
-    """模糊比對答案同選項：①答案係 A/B/C/D 代號 → 對應選項 ②正規化一致 ③包容式比對（雙方長度 ≥4 先採用，防短答案誤配）"""
+    """模糊比對答案同選項：①答案係 A/B/C/D 代號 → 對應選項 ②正規化一致 ③單向包含比對（選項完整包含喺答案入面，且雙方長度 ≥4 先採用）。
+    單向包含容到 AI 加解釋字（「because (reason)」→ 收「because」），但唔會用「答案包含喺選項」方向，避免 "so" 誤收 "some"、"less" 誤收 "homeless" 假陽性。"""
+
     na = norm_answer(ans)
     if not na:
         return None
@@ -78,7 +80,8 @@ def _match_option(ans, opts):
     # 包容式比對：雙方都要夠長（≥4 字元）先採用，防止「b」呢類短答案誤配含 b 嘅選項
     for o in opts:
         no = norm_answer(o)
-        if len(na) >= 4 and len(no) >= 4 and (na in no or no in na):
+        if len(na) >= 4 and len(no) >= 4 and no in na:
+
             return o
     return None
 
