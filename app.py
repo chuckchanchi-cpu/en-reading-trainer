@@ -52,11 +52,12 @@ SKILL_LABEL = {
 }
 
 def norm_answer(s):
-    """寬鬆比對：去首尾空格、小寫、去標點"""
+    """寬鬆比對：去首尾空格、小寫、去標點、收斂內部空白"""
     if s is None:
         return ""
     s = s.strip().lower()
     s = re.sub(r"[.,!?;:'\"()]", "", s)
+    s = re.sub(r"\s+", " ", s)
     return s.strip()
 
 def grade_cloze(user, answer):
@@ -64,16 +65,20 @@ def grade_cloze(user, answer):
     return norm_answer(user) in [norm_answer(a) for a in alts] and norm_answer(user) != ""
 
 def _match_option(ans, opts):
-    """模糊比對答案同選項：正規化後完全一致優先，再退包含式比對（容忍標點/大小寫/首尾差異）"""
+    """模糊比對答案同選項：①答案係 A/B/C/D 代號 → 對應選項 ②正規化一致 ③包容式比對（雙方長度 ≥4 先採用，防短答案誤配）"""
     na = norm_answer(ans)
     if not na:
         return None
+    # 答案係選項代號（AI 偶爾回 A/B/C/D）→ 直接對應選項
+    if na.upper() in ("A", "B", "C", "D") and len(opts) == 4:
+        return opts["ABCD".index(na.upper())]
     for o in opts:
         if norm_answer(o) == na:
             return o
+    # 包容式比對：雙方都要夠長（≥4 字元）先採用，防止「b」呢類短答案誤配含 b 嘅選項
     for o in opts:
         no = norm_answer(o)
-        if no and (na in no or no in na):
+        if len(na) >= 4 and len(no) >= 4 and (na in no or no in na):
             return o
     return None
 
