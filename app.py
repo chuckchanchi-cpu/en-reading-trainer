@@ -63,6 +63,20 @@ def grade_cloze(user, answer):
     alts = [a.strip() for a in re.split(r"\s*/\s*", answer)]
     return norm_answer(user) in [norm_answer(a) for a in alts] and norm_answer(user) != ""
 
+def _match_option(ans, opts):
+    """模糊比對答案同選項：正規化後完全一致優先，再退包含式比對（容忍標點/大小寫/首尾差異）"""
+    na = norm_answer(ans)
+    if not na:
+        return None
+    for o in opts:
+        if norm_answer(o) == na:
+            return o
+    for o in opts:
+        no = norm_answer(o)
+        if no and (na in no or no in na):
+            return o
+    return None
+
 def validate_questions(questions):
     """過濾唔合格題目；回傳 (valid, rejected_count)"""
     valid = []
@@ -71,12 +85,13 @@ def validate_questions(questions):
         if t == "mcq":
             opts = [str(o).strip() for o in q.get("options", []) if str(o).strip()]
             ans = str(q.get("answer", "")).strip()
-            if len(opts) == 4 and ans in opts and q.get("q"):
-                q["options"], q["answer"] = opts, ans
+            matched = _match_option(ans, opts)
+            if len(opts) == 4 and matched and q.get("q"):
+                q["options"], q["answer"] = opts, matched
                 valid.append(q)
         elif t == "cloze":
             ans = str(q.get("answer", "")).strip()
-            if ans and len(ans.split()) <= 2 and q.get("q"):
+            if ans and len(ans.split()) <= 3 and q.get("q"):
                 valid.append(q)
     return valid
 
