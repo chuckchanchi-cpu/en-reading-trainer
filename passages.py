@@ -582,4 +582,98 @@ PASSAGES = [
             },
         ],
     },
+    {
+        "id": "extremeweather",
+        "title": "Extreme Weather Events Around the World",
+        "source": "2026-10-27 KWONG MING P6A Unit 4（Ming Pao Smarties' Power English S02）",
+        "article": (
+            "Hong Kong has experienced several extreme weather events this year. The Hong Kong Observatory "
+            "has hoisted the No. 10 signal twice for the tropical cyclones (typhoons) Wipha and Ragasa. The "
+            "last time that two No. 10 signals were hoisted in a year was in 1964. Ragasa caused severe floods "
+            "in Hong Kong, especially in the flood-prone areas such as Heng Fa Chuen.\n\n"
+            "Furthermore, looking back on the summer, we have experienced frequent extreme precipitation "
+            "events heavier than before. The Hong Kong Observatory has hoisted the red signal 16 times and the "
+            "black signal 5 times for heavy rainstorms, which are also record-breaking.\n\n"
+            "The other parts of the world have also experienced frequent extreme weather events. For example, "
+            "countries in Europe and Africa have been adversely affected by heatwaves, droughts, and floods "
+            "this summer. Additionally, California in the United States, South Korea, and Canada have "
+            "experienced wildfires in 2025. These climate hazards have led to a loss of lives and property, as "
+            "well as a reduction in the productivity of people.\n\n"
+            "Why are extreme weather events so frequent? It is believed that global warming has been one of "
+            "the reasons contributing to the frequent extreme weather events around the world. As the average "
+            "global temperature increases, the Earth's atmosphere becomes warmer, potentially leading to "
+            "stronger storms, more intense heatwaves, and heavier rainfall. To combat the effects of global "
+            "warming and reduce the frequency of extreme weather events, it is time to take action by adopting "
+            "environmental practices to make our world more sustainable."
+        ),
+        "questions": [
+            {
+                "type": "mcq", "skill": "detail",
+                "q": "How many times has the Hong Kong Observatory hoisted the No. 10 signal this year?",
+                "options": ["Once", "Twice", "Three times", "Four times"],
+                "answer": "Twice",
+                "hint": "段一：「hoisted the No. 10 signal **twice** for the tropical cyclones Wipha and Ragasa」。",
+                "trap": "⚠️ 題目問「幾多次 10 號」，唔係問「幾多個颱風」— 颱風兩個但信號兩次啱啱好，唔好混淆其他數字（紅雨 16 次、黑雨 5 次）。",
+            },
+            {
+                "type": "mcq", "skill": "not-mentioned",
+                "q": "Which of the following is NOT mentioned as an extreme weather event experienced this year?",
+                "options": [
+                    "Typhoons in Hong Kong",
+                    "Heatwaves in Europe",
+                    "Earthquakes in South Korea",
+                    "Wildfires in Canada",
+                ],
+                "answer": "Earthquakes in South Korea",
+                "hint": "逆向題：核對『事件＋地點』雙重啱先算。南韓出現過，但係 wildfires（山火），唔係 earthquakes（地震）。",
+                "trap": "⚠️ 陷阱：見到「South Korea」就揀 True — 原文南韓係山火！地點啱但事件錯都係 NOT mentioned。",
+            },
+            {
+                "type": "mcq", "skill": "inference",
+                "q": "Why are extreme weather events becoming more common around the world?",
+                "options": [
+                    "Global warming makes the Earth warmer.",
+                    "There is less rainfall worldwide.",
+                    "The Earth is getting cooler.",
+                    "More forests are growing everywhere.",
+                ],
+                "answer": "Global warming makes the Earth warmer.",
+                "hint": "尾段：「global warming has been one of the reasons… the Earth's atmosphere becomes warmer」→ 氣溫上升令極端天氣更頻繁。",
+                "trap": "B 同原文相反（係「heavier rainfall」）；C/D 同原文矛盾。",
+            },
+            {
+                "type": "mcq", "skill": "vocabulary",
+                "q": "What does 'record-breaking' mean in paragraph 2?",
+                "options": [
+                    "Never happened before at this level",
+                    "Breaking records into pieces",
+                    "Recorded by the Hong Kong Observatory",
+                    "Unimportant and easy to forget",
+                ],
+                "answer": "Never happened before at this level",
+                "hint": "上下文：紅雨 16 次、黑雨 5 次「also record-breaking」→ 破紀錄，以前未試過咁多。",
+                "trap": "⚠️ 唔好逐字譯「打碎紀錄」— 比喻義係「創紀錄/前所未有」。",
+            },
+            {
+                "type": "mcq", "skill": "main-idea",
+                "q": "What is the article mainly about?",
+                "options": [
+                    "Extreme weather events around the world and why they are frequent",
+                    "The history of typhoons in Hong Kong",
+                    "How to build houses in flood-prone areas",
+                    "Wildfires in Canada and South Korea",
+                ],
+                "answer": "Extreme weather events around the world and why they are frequent",
+                "hint": "標題＋結構：香港颱風暴雨→全球極端天氣→原因（global warming）→ 行動。主旨要覆蓋全文。",
+                "trap": "B/C/D 都係局部內容（某段例子）— 主旨題要揀覆蓋全文嘅選項。",
+            },
+            {
+                "type": "cloze", "skill": "cloze",
+                "q": "Complete the sentence with ONE word from the article: The last time that two No. 10 signals were hoisted in a year was in _____.",
+                "answer": "1964",
+                "hint": "段一末句：「The last time that two No. 10 signals were hoisted in a year was in 1964」。",
+                "trap": "⚠️ ONE word 限定 — 年份寫 1964，唔好寫「the 1960s」。",
+            },
+        ],
+    },
 ]
