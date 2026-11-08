@@ -676,4 +676,190 @@ PASSAGES = [
             },
         ],
     },
+    {
+        "id": "henrydiary",
+        "title": "Ella's Diary: Taking Care of Henry",
+        "source": "2026-11-08 HKAT Preparatory Reading（Ella 日記）",
+        "article": (
+            "1st August 20XX (Saturday) Sunny — Aunt Mabel asked me to take care of Henry because she needed to "
+            "go to Shenzhen. She rang my doorbell at 1 a.m. and woke everyone up. I answered and opened the door. "
+            "Aunt Mabel immediately gave me a basket full of fruit and vegetables. I thought the food was for me, "
+            "but Aunt Mabel said they were for Henry.\n\n"
+            "2nd August 20XX (Sunday) — The first thing I did after I woke up was to fill Henry's water bottle and "
+            "put some vegetables in his cage. After Henry had his breakfast, he started running in his running "
+            "wheel. Suddenly, the wheel fell to the side. I opened the gate and tried to fix it. Henry quickly "
+            "jumped out. Before I knew it, he had disappeared! Mum closed all the windows at once. We searched "
+            "everywhere but we couldn't find him. Mum walked into the kitchen to make some tea. To her surprise, "
+            "something moved in the rubbish bin. Henry was inside! He had a mouthful of nuts. We cleaned and fed "
+            "Henry some more nuts. He chewed happily. I'm so relieved that Henry is fine.\n\n"
+            "3rd August 20XX (Monday) — We went out for breakfast today. When we came back, I noticed that Henry "
+            "didn't eat his breakfast. He wasn't moving much either. We took him to the vet. I was so worried, but "
+            "the vet told us that Henry is fine.\n\n"
+            "4th August 20XX (Tuesday) Cloudy — Henry went home with Aunt Mabel last night. I didn't think I could "
+            "love an animal so much. I thought about Henry the whole day. I smiled every time I saw the rubbish "
+            "bin. Henry has returned home already. I feel glad that everything went well. My aunt said I could "
+            "visit him any time! I can't wait to see him again."
+        ),
+        "questions": [
+            {
+                "type": "mcq", "skill": "detail",
+                "q": "When Ella first saw Henry, she was _____.",
+                "options": ["hungry", "sleepy", "worried", "angry"],
+                "answer": "sleepy",
+                "hint": "日記 1st Aug：Aunt Mabel 凌晨 1 點撳鐘「woke everyone up」→ 被吵醒 → sleepy。",
+                "trap": "A hungry 係陷阱：籃入面係果菜，但 Aunt Mabel 話係畀 Henry 唔係畀 Ella。",
+            },
+            {
+                "type": "mcq", "skill": "not-mentioned",
+                "q": "Which of the following did Ella NOT do on the second day?",
+                "options": ["feed Henry breakfast", "fix the running wheel", "cry", "search everywhere"],
+                "answer": "cry",
+                "hint": "逆向題逐項核對：feed breakfast ✓、fix the wheel ✓、search everywhere ✓ — 唔見咗 Henry 全程都冇喊。",
+                "trap": "⚠️ 事實啱都唔夠 — 題目問「Ella 做過咩」，要睇主語係邊個。",
+            },
+            {
+                "type": "mcq", "skill": "inference",
+                "q": "Why did Ella smile at the rubbish bin on Tuesday?",
+                "options": [
+                    "It made her think of Henry.",
+                    "She felt happy with lots of nuts.",
+                    "There was a funny face on the rubbish bin.",
+                    "She thought Henry was still inside.",
+                ],
+                "answer": "It made her think of Henry.",
+                "hint": "推論：「thought about Henry the whole day」＋垃圾桶係 Henry 藏身之處 → 望見垃圾桶諗起佢。",
+                "trap": "D「以為 Henry 喺入面」— 佢知 Henry 已返屋企；係回憶唔係誤會。",
+            },
+            {
+                "type": "mcq", "skill": "vocabulary",
+                "q": "What does 'mouthful' mean in the diary?",
+                "options": [
+                    "a quantity of food in the mouth",
+                    "a kind of nut",
+                    "an empty stomach",
+                    "a loud noise",
+                ],
+                "answer": "a quantity of food in the mouth",
+                "hint": "Word bank：mouthful（n）＝一滿口嘅食物/飲品；「a mouthful of nuts」＝一滿口果仁。",
+                "trap": "⚠️ 唔好因為「nuts」就以為 mouthful 係果仁名。",
+            },
+            {
+                "type": "mcq", "skill": "main-idea",
+                "q": "What is the diary mainly about?",
+                "options": [
+                    "Ella's experience of taking care of Henry.",
+                    "Aunt Mabel's trip to Shenzhen.",
+                    "How to look after a pet hamster.",
+                    "Why hamsters like nuts.",
+                ],
+                "answer": "Ella's experience of taking care of Henry.",
+                "hint": "日記四日都圍繞照顧 Henry 嘅經過 → 主旨係照顧 Henry 嘅體驗。",
+                "trap": "B 只係背景；C/D 太窄（淨係一個環節）。",
+            },
+            {
+                "type": "cloze", "skill": "cloze",
+                "q": "Complete the diary message with ONE word: My _____ said I could visit him any time!",
+                "answer": "aunt",
+                "hint": "Henry 係 Aunt Mabel 嘅寵物，返咗佢屋企 → aunt 話可以嚟探。",
+                "trap": "⚠️ ONE word — 答 aunt（唔好寫 Aunt Mabel 兩個字）。",
+            },
+        ],
+    },
+    {
+        "id": "community",
+        "title": "Tuen Wan Community Centre Notices",
+        "source": "2026-11-08 HKAT (Pre-S1) Reading（活動通告）",
+        "article": (
+            "Green Helpers — Day: Saturdays, Time: 9 a.m.-1 p.m., Fee: Free. Do you want to save the Earth? Be a "
+            "green helper and take part in our environmentally friendly activities. Instead of planting flowers "
+            "like last year, we will plant trees and learn some green tips with us. You can also clean up beaches.\n\n"
+            "Community Choir — Day: Thursdays, Time: 5 p.m.-7 p.m., Venue: Room 1, Fee: $200. Our instructor, Mrs "
+            "Fung, will teach you different singing skills. Rather than singing in a group, you will get a chance "
+            "to perform in the elderly's home. *To join the choir, you need to attend an audition first.\n\n"
+            "Community Book Club — Day: Tuesdays, Time: 7:00 p.m.-8:30 p.m., Venue: Room 2, Fee: Free. Come to our "
+            "Book Club and share your favourite books. Every week, we have a book-sharing session. Each of our "
+            "members will introduce a book of their choice. We also work with Happy Bookshop for book ordering "
+            "service. *Members can order books at a discount.\n\n"
+            "Painting Fun — Day: Sundays, Time: 10:30 a.m.-11:30 a.m., Venue: Room 4, Fee: $250. It is never too "
+            "late to learn to paint. We have invited Mr Steven Hart, an artist from the UK, who is famous for his "
+            "landscapes. Mr Hart will teach you some basic painting skills. Don't worry about the materials. We "
+            "will provide the brushes, paper and canvas needed for the lessons.\n\n"
+            "To join the above activities, please get an application form from the counter or download it from our "
+            "website. Please contact Jessica Young at 4452 2072 or send an e-mail to info@nwc.hk for enquiries."
+        ),
+        "questions": [
+            {
+                "type": "mcq", "skill": "not-mentioned",
+                "q": "Which activity will NOT be offered by the Green Helpers this year?",
+                "options": [
+                    "cleaning up beaches",
+                    "learning green tips",
+                    "planting trees",
+                    "painting in the countryside",
+                ],
+                "answer": "painting in the countryside",
+                "hint": "Green Helpers 通告：種樹＋清灘＋綠色貼士；「painting」係 Painting Fun 嘅嘢。",
+                "trap": "⚠️ 通告話今年「Instead of planting flowers… we will plant trees」— 花都唔種，畫畫更加冇。",
+            },
+            {
+                "type": "mcq", "skill": "detail",
+                "q": "Why must members attend an audition before joining the Community Choir?",
+                "options": [
+                    "To show they can sing.",
+                    "To pay the $200 fee.",
+                    "To meet Mrs Fung.",
+                    "To book Room 1.",
+                ],
+                "answer": "To show they can sing.",
+                "hint": "Audition＝試音/試演；入唱歌班要先 show singing ability。",
+                "trap": "⚠️ 「attend an audition first」係要求 — 問「why」要答目的（試音展示歌藝）。",
+            },
+            {
+                "type": "mcq", "skill": "inference",
+                "q": "Patty's brother has $200 to spend and wants to learn something new. Which activity should he join?",
+                "options": [
+                    "Green Helpers",
+                    "Community Choir",
+                    "Community Book Club",
+                    "Painting Fun",
+                ],
+                "answer": "Community Choir",
+                "hint": "推理：$200 預算 → Painting Fun $250 超預算、Book Club/Green Helpers 免費但唔係「學新嘢」重點；Choir $200 啱預算＋學唱歌技巧。",
+                "trap": "⚠️ 雙重條件：啱預算（$200）＋學新技能 — Free 活動都啱錢但 Choir 先係「學嘢」首選。",
+            },
+            {
+                "type": "mcq", "skill": "vocabulary",
+                "q": "What does 'audition' mean in the notice?",
+                "options": [
+                    "a try-out performance",
+                    "a music lesson",
+                    "a concert ticket",
+                    "a group meeting",
+                ],
+                "answer": "a try-out performance",
+                "hint": "Audition＝試音/試演（展示能力俾人揀）。",
+                "trap": "⚠️ 唔係「音樂課」— 入會前嘅篩選程序。",
+            },
+            {
+                "type": "mcq", "skill": "main-idea",
+                "q": "What is the purpose of the notices?",
+                "options": [
+                    "To introduce community centre activities and how to join.",
+                    "To advertise Happy Bookshop.",
+                    "To teach painting skills.",
+                    "To report on the elderly's home.",
+                ],
+                "answer": "To introduce community centre activities and how to join.",
+                "hint": "四個通告＝活動介紹＋費用時間地點＋報名方法 → 目的係介紹活動同加入方法。",
+                "trap": "B/C/D 係個別活動內容，太窄。",
+            },
+            {
+                "type": "cloze", "skill": "cloze",
+                "q": "Complete the notice with ONE word: To join, please get an _____ form from the counter.",
+                "answer": "application",
+                "hint": "「get an application form」＝攞申請表（報名程序）。",
+                "trap": "⚠️ ONE word — application form 係固定搭配。",
+            },
+        ],
+    },
 ]
