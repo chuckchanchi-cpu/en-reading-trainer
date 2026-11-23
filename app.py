@@ -22,12 +22,14 @@ import streamlit as st
 
 from passages import PASSAGES
 from reading_loader import load_reading_passages
+_daily = load_reading_passages(only_lang="英文")
 try:
-    PASSAGES = list(PASSAGES) + load_reading_passages(only_lang="英文")  # 每日一篇
+    PASSAGES = list(PASSAGES) + _daily  # 每日一篇
 except Exception:
     pass
 
 st.set_page_config(page_title="📖 英文閱讀理解訓練", page_icon="📖", layout="wide")
+st.caption(f"📖 每日一篇：{len(_daily)} 篇已載入")
 
 # 將 Streamlit Secrets 注入環境變數（每個 page 獨立執行，要自己注入！）
 # ⚠️ 安全讀 Secrets：冇設定 Secrets 唔好炸 app（len(st.secrets) 喺新版 Streamlit 會拋異常）

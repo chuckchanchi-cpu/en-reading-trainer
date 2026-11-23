@@ -13,18 +13,20 @@ SKILL_MAP = {"主旨": "main", "細節": "detail", "推論": "inference", "詞�
 
 def _fetch_texts():
     texts = {}
-    # 1) 本地
-    if os.path.isdir(LOCAL_DIR):
-        for f in glob.glob(os.path.join(LOCAL_DIR, "*.md")):
-            name = os.path.basename(f)
-            if name.startswith(("README", "_")):
-                continue
-            try:
-                texts[name] = open(f, encoding="utf-8").read()
-            except Exception:
-                pass
-        if texts:
-            return texts
+    # 1a) repo 內 ./Reading/（離線/雲端最穩陣）
+    base = os.path.dirname(os.path.abspath(__file__))
+    for d in (os.path.join(base, "Reading"), LOCAL_DIR):
+        if os.path.isdir(d):
+            for f in glob.glob(os.path.join(d, "*.md")):
+                name = os.path.basename(f)
+                if name.startswith(("README", "_")):
+                    continue
+                try:
+                    texts[name] = open(f, encoding="utf-8").read()
+                except Exception:
+                    pass
+            if texts:
+                return texts
     # 2) raw + index.txt（免 API 限速）
     try:
         import requests
