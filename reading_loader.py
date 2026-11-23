@@ -25,7 +25,24 @@ def _fetch_texts():
                 pass
         if texts:
             return texts
-    # 2) GitHub API
+    # 2) raw + index.txt（免 API 限速）
+    try:
+        import requests
+        raw = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/Reading"
+        idx = requests.get(f"{raw}/index.txt", timeout=15)
+        if idx.status_code == 200:
+            for name in idx.text.splitlines():
+                name = name.strip()
+                if not name.endswith(".md") or name.startswith(("README", "_")):
+                    continue
+                r = requests.get(f"{raw}/{name}", timeout=15)
+                if r.status_code == 200:
+                    texts[name] = r.text
+        if texts:
+            return texts
+    except Exception:
+        pass
+    # 3) GitHub API fallback
     try:
         import requests
         r = requests.get(f"https://api.github.com/repos/{REPO}/git/trees/{BRANCH}?recursive=1", timeout=15)
