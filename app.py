@@ -55,9 +55,14 @@ def get_api_config():
 SKILL_LABEL = {
     "detail": "🔎 細節理解",
     "not-mentioned": "🚫 逆向題（NOT mentioned）",
+    "not": "🚫 逆向題（NOT mentioned）",
     "inference": "🧠 推論",
     "vocabulary": "📚 詞義",
+    "vocab": "📚 詞義",
     "main-idea": "🎯 主旨",
+    "main": "🎯 主旨",
+    "cause": "🔗 因果",
+    "attitude": "💭 深層意思",
     "cloze": "✏️ ONE-word 填詞",
 }
 
