@@ -65,7 +65,7 @@ def parse_md(name, text):
     if not m:
         return None
     date, lang, title = m.group(1), m.group(2), m.group(3).strip()
-    am = re.search(r"## 文章\s*\n(.*?)\n##\s*閱讀理解", text, re.S)
+    am = re.search(r"##\s*文章[^\n]*\n(.*?)\n##\s*閱讀理解", text, re.S)
     if not am:
         return None
     article = re.sub(r"^>.*$", "", am.group(1), flags=re.M).strip()
