@@ -77,14 +77,26 @@ def load_vocab(lang="zh"):
             except Exception:
                 continue
             out.extend(parse_md(txt, lang=prefix))
-    # 去重（同一個詞可能出現兩次）
-    seen, uniq = set(), []
+    # 同一個詞可能出現多次（唔同詞義）→ 合併，唔好丟棄
+    order, merged = [], {}
     for w in out:
-        if w["word"] in seen:
+        k = w["word"]
+        if k not in merged:
+            merged[k] = dict(w)
+            order.append(k)
             continue
-        seen.add(w["word"])
-        uniq.append(w)
-    return uniq
+        prev = merged[k]
+        # 合併解釋（去重）
+        parts = [x.strip() for x in prev["explain"].split("；") if x.strip()]
+        for alt in w["explain"].split("；"):
+            alt = alt.strip()
+            if alt and alt not in parts:
+                parts.append(alt)
+        prev["explain"] = "；".join(parts)
+        # 例句合併（示範唔同用法）
+        if w["example"] and w["example"] not in prev["example"]:
+            prev["example"] = (prev["example"] + " ／ " + w["example"]).strip(" ／")
+    return [merged[k] for k in order]
 
 
 # ─────────────────── 出題 ───────────────────
